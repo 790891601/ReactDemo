@@ -1,8 +1,7 @@
 import react from "react"
 import reactDOM from "react-dom"
-import Button from "./Button"
-import Input from "./Input"
-import "./Button.less"
+import Button from "./Button/index"
+import Input from "./Input/index"
 
 class Model {
     constructor() {
