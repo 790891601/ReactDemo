@@ -26,24 +26,26 @@ export default class Input extends React.Component {
 
     onChange(event) {
         // console.log(event.nativeEvent)
+        const t = this.el_.value;
 
-        if(this.el_.value.length > 2) {
+        if(t && t.length > 5) {
             console.log("太长了")
-            // event.preventDefault()
             return 
         }
 
         this.setState({
-            val : event.nativeEvent.data
+            val : t
         })
     }
 
     render() {
-        const { classname } = this.props
+        const { classname, val:defaultVal } = this.props
         const { val } = this.state
 
         const customCls = `Input-default ${classname}`
 
-        return <input ref={ el => { this.el_ = el } } type="text" onChange={ this.onChange.bind(this) } defaultValue={ val } className={ customCls } />
+        return <input ref={ el => { this.el_ = el } } type="text" 
+            onChange={ this.onChange.bind(this) } 
+            value={ val }  className={ customCls } />
     }
 } 
